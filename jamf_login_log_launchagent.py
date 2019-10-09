@@ -1,12 +1,27 @@
 #!/System/Library/Frameworks/Python.framework/Versions/Current/bin/python
 # -*- coding: utf-8 -*-
 """
-
 jamf_login_log.py
 Creates a LaunchAgent that is scoped to run in the loginwindow domain. This
 LaunchAgent then runs a script that spawns a GUI over the Login Window that
 displays information about the current state of the device.
 
+Copyright 2019 Glynn Lane (primalcurve)
+
+Based on LoginLog: https://github.com/MagerValp/LoginLog
+Copyright 2013-2016 Per Olofsson, University of Gothenburg
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 """
 import os
 import pwd
