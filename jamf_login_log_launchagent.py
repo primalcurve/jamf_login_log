@@ -710,7 +710,6 @@ if existing_script != log_script:
 
 else:
     print("Script file matches master. No need to update. Exiting.")
-    sys.exit(0)
 
 # Start the LaunchAgent:
 # Created the launchctl commands in a list.
@@ -722,12 +721,10 @@ launchctl_list = [
 # Run the launchctl commands, but don't pipe their output as that will create
 # a lot of noise in the logs.
 for cmd in launchctl_list:
-    if os.system(cmd + " >/dev/null 2>&1"):
-        # If return code is nonzero
-        print(cmd + " - did not succeed.")
-    else:
-        # If return code is zero.
-        print(cmd + " - succeeded.")
-
+    try:
+        subprocess.check_call(cmd)
+        print(" ".join(cmd) + " - succeeded.")
+    except subprocess.CalledProcessError:
+        print(" ".join(cmd) + " - did not succeed.")
 
 sys.exit(0)
